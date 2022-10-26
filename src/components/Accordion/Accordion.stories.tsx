@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ComponentStory, ComponentMeta, Story} from '@storybook/react';
+import { ComponentMeta, Story} from '@storybook/react';
 import {action} from "@storybook/addon-actions";
 import {Accordion, AccordionPropsType} from "./Accordion";
 
@@ -30,7 +30,7 @@ export default {
 
 } as ComponentMeta<typeof Accordion>;
 
-const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
+const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />; //это функция
 
 const callback = action('accordion change event fired')
 
@@ -39,7 +39,7 @@ const callbacksProps = {
     onClick: callback
 }
 
-export const MenuCollapsedMode = Template.bind({})
+export const MenuCollapsedMode = Template.bind({}) //создаем копию
 MenuCollapsedMode.args = {
     ...callbacksProps,
     titleValue:'Menu',

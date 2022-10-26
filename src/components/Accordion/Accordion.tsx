@@ -14,7 +14,6 @@ export type AccordionPropsType ={
      * Elements that showed when is opened. Each item should be ItemType.
      */
     items: ItemType[]
-    // onClick: (value: any)=> void
     /**
      * optional color of header text
      */
