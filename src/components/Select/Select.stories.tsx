@@ -48,26 +48,3 @@ export const WithoutValueChanging: Story<AccordionPropsType> = (args) => {
                    items={[{value: 1, title: 'Minsk'}, {value: 2, title: 'Moscow'}, {value: 3, title: 'Barselona'}]}
                    onChange={setValue}/>
 }
-
-// export default {
-//     title: 'Select',
-//     component: Select,
-//
-// } as ComponentMeta<typeof Select>;
-//
-// const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
-//
-// export const WithValue = () => <Select value={'2'} onChange={action('Value changed')}
-//                 items={[
-//                     {value: 1, title: 'Minsk'},
-//                     {value: 2, title: 'Moscow'},
-//                     {value: 3, title: 'Barselona'}
-//                 ]}/>
-//
-//
-// export const WithoutValue = () => <Select onChange={action('Value changed')}
-//                                           items={[
-//                                               {value: 1, title: 'Minsk'},
-//                                               {value: 2, title: 'Moscow'},
-//                                               {value: 3, title: 'Barselona'}
-//                                           ]}/>
