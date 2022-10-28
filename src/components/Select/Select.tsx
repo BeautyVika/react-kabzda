@@ -1,7 +1,6 @@
 import React, {useState, KeyboardEvent, useEffect} from 'react';
 import s from './Select.module.css'
 
-
 export type SelectPropsType = {
     value?: any
     onChange: (value: any) => void
