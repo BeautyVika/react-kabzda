@@ -60,9 +60,13 @@ export const ClockExample = () => {
 
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
+            console.log('Clock')
             setClock(new Date().toLocaleTimeString())
         }, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
     },[])
 
 

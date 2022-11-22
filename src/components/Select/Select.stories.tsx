@@ -4,8 +4,6 @@ import {Select, SelectPropsType} from "./Select";
 import {action} from "@storybook/addon-actions";
 import { AccordionPropsType} from "../Accordion/Accordion";
 
-
-
 export default {
     title: 'component/Select',
     component: Select,
