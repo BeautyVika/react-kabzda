@@ -11,10 +11,10 @@ export const SimpleExample = () => {
     useEffect(() => {
         console.log('UseEffect')
         document.title = counter.toString()
-    },[counter])
+    }, [counter])
 
     return <>
-        Hello,  {counter}
+        Hello, {counter}
         <button onClick={() => setCounter(counter + 1)}>+</button>
     </>
 }
@@ -28,11 +28,11 @@ export const SetTimeoutExample = () => {
         setTimeout(() => {
             document.title = counter.toString()
         }, 1000)
-    },[counter])
+    }, [counter])
 
 
     return <>
-        Hello,  {counter}
+        Hello, {counter}
         <button onClick={() => setCounter(counter + 1)}>+</button>
     </>
 }
@@ -43,14 +43,17 @@ export const SetIntervalExample = () => {
     console.log('SetInterval Example')
 
     useEffect(() => {
-        setInterval(() => {
+        const interval = setInterval(() => {
             setCounter((state) => state + 1)
         }, 1000)
-    },[])
+        return () => {
+            clearInterval(interval)
+        }
+    }, [])
 
 
     return <>
-        Hello,  {counter}
+        Hello, {counter}
     </>
 }
 
@@ -67,10 +70,56 @@ export const ClockExample = () => {
         return () => {
             clearInterval(intervalId)
         }
-    },[])
+    }, [])
 
 
     return <>
-        Hello,  {clock}
+        Hello, {clock}
+    </>
+}
+
+export const ResetEffectExample = () => {
+
+    const [counter, setCounter] = useState(1)
+
+    console.log('Component rendered with ' + counter)
+
+    useEffect(() => {
+        console.log('Effect occurred with ' + counter)
+
+        return () => {
+            console.log('RESET Effect with ' + counter)
+        }
+    }, [counter])
+
+    const onIncrease = () => setCounter(counter + 1)
+
+    return <>
+        Hello, {counter}
+        <button onClick={onIncrease}>+</button>
+    </>
+}
+
+export const KeyTrackerExample = () => {
+
+    const [text, setText] = useState('')
+
+    console.log('Component rendered with ' + text)
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.code)
+            setText(state => state + e.key)
+        }
+
+        window.addEventListener('keypress', handler)
+
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [])
+
+    return <>
+        Typed text: {text}
     </>
 }

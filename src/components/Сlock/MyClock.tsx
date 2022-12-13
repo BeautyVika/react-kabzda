@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import s from './MyClock.module.css'
-export type MyClockPropsType = {
 
+export type MyClockPropsType = {
 }
 
 export const MyClock: React.FC<MyClockPropsType> = (props) => {
@@ -19,18 +19,19 @@ export const MyClock: React.FC<MyClockPropsType> = (props) => {
         }
     }, [])
 
+    // + ((date.getMinutes() * 6) / 12)
+
     return (
         <div className={s.clock}>
             <div className={s.hours}>
                 <div className={s.hour}
-                     style={{transform: `rotateZ(${(date.getHours() * 30) + ((date.getMinutes() * 6) / 12)}deg)`}}>
+                     style={{transform: `rotateZ(${(date.getHours() * 30)}deg)`}}>
                 </div>
             </div>
 
             <div className={s.minutes}>
                 <div className={s.minute}
                      style={{transform: `rotateZ(${date.getMinutes() * 6}deg)`}}>
-
                 </div>
             </div>
 
