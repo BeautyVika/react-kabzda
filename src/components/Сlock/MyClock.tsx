@@ -4,8 +4,6 @@ export type MyClockPropsType = {
 
 }
 
-const get2digitsString = (num: number) => num < 10 ? '0' + num : num
-
 export const MyClock: React.FC<MyClockPropsType> = (props) => {
 
     const [date, setDate] = useState(new Date())
